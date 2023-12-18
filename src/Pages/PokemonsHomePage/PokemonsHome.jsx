@@ -11,18 +11,10 @@ import { ContainerGame } from "../../Components/DisplayGame/styled";
 import bgSearch from './../../assets/bg/bgSearch.png'
 
 
-const ListPoke = styled.ul`
-max-width: 90%;
-`
-const ListAll = styled.li`
-display: flex;
-padding: 2rem;
-max-width: 300px;
-height: 560px;
 
-`
 
-const PokeCard1 = styled.li`
+
+const PokeCard1 = styled.div`
 display: flex;
 flex-flow: column wrap;
 width:30%;
@@ -113,8 +105,8 @@ return (
 
 </Flex>
 </Box>
-<Flex flexFlow={'column wrap'}>
-  <ListPoke>
+<Flex flexFlow={'row wrap'} justifyContent={'space-around'}>
+
 
     {pokemons.map((pokemon, indice) => pokedex.find((poke)=>poke.data.name == pokemon.data.name)?(
       <span key={indice}></span>
@@ -161,7 +153,7 @@ handleNext()
 </PokeCard1>
       )
     )}
-    </ListPoke>
+
     </Flex>
     <Button onClick={() => handlePrevious()} bg={'red.300'}> PAGINA ANTERIOR</Button>
     <Button onClick={() => handleNext()} bg={'green.300'}>PROXIMA PAGINA</Button>
