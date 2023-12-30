@@ -1,30 +1,76 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import {Box, Heading, Text, Button, Container, ButtonGroup} from '@chakra-ui/react'
-import styled from 'styled-components'
+import {
+  Button,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  useBreakpointValue,
+} from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
+import { handlePokemons, handleSignIn } from '../router/coordinator';
 
+export  function SearchClientPage() {
 
-
-export function SearchClientPage() {
+  const navigate = useNavigate();
   return (
-    <>
-  <Heading bg="whitesmoke" marginTop={'500px'} p={4} m={'40px auto'}>
-    BUSCA FILTRADA!
-    </Heading>
-    <Text fontSize='xl'>
-    Paystack helps businesses in Africa get paid by anyone, anywhere in the
-    world
-  </Text>
-  <Box>
-  <Link to='/pokemons/0'>
-  BuscarPokemons
-</Link>
+    <Stack minH={'95vh'} direction={{ base: 'column', md: 'row' }}
+    marginTop={'60px'}
+    >
+      <Flex p={8} flex={1} align={'center'} justify={'center'} paddingTop={'80px'}>
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+            <Text
+              as={'span'}
+              position={'relative'}
+              _after={{
+                content: "''",
+                width: 'full',
+                height: useBreakpointValue({ base: '20%', md: '30%' }),
+                position: 'absolute',
+                bottom: 1,
+                left: 0,
+                bg: 'blue.400',
+                zIndex: -1,
+              }}>
+              Freelance
+            </Text>
+            <br />{' '}
+            <Text color={'blue.400'} as={'span'}>
+              Design Projects
+            </Text>{' '}
+          </Heading>
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
+            The project board is an exclusive resource for contract work. It&apos;s
+            perfect for freelancers, agencies, and moonlighters.
+          </Text>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Button
+              rounded={'full'}
+              onClick={()=>{handleSignIn(navigate)}}
+              bg={'blue.400'}
+              color={'white'}
+              _hover={{
+                bg: 'blue.500',
 
-<Button to='/search/'>
-  Enviar Busca
-</Button>
-</Box>
-
-</>
+              }}>
+              LOGUEAR E JOGAR
+            </Button>
+            <Button rounded={'full'} onClick={()=>{handlePokemons(navigate)}}>
+            EXPERIMENTAR  CAPTURAR
+            </Button>
+          </Stack>
+        </Stack>
+      </Flex>
+      <Flex flex={1}>
+        <Image
+          alt={'Login Image'}
+          objectFit={'cover'}
+          src={
+            'https://i.postimg.cc/6qt9v53L/pokre.jpg'
+          }
+        />
+      </Flex>
+    </Stack>
   )
 }

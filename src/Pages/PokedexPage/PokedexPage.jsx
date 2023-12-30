@@ -1,12 +1,12 @@
 import {useEffect, useContext, useState} from "react"
 import { Link } from "react-router-dom";
-import { PokedexContext } from '../../globals/Context'
 import { PokedexItem } from "../../Components/PokedexItem";
 
 import axios from "axios";
 
 import styled from "styled-components";
 import { Image, Box, Container, Flex, Text, Button } from "@chakra-ui/react";
+import { PokemonsContext } from "../../common/context/pokemons-context";
 
 const ListAll2 = styled.ul`
 display: flex;
@@ -54,18 +54,21 @@ font-size: 1.3rem;
 
 `
 export  function PokedexPage() {
-const URL_API1 = "https://pokeapi.co/api/v2";
-const [pokemons, setPokemons] = useState([]);
-const [next, setNext] = useState("");
-const [previous, setPrevious] = useState("");
-const [pokedexList, setPokedexList] = useState([])
-const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
-const handleNext = (url) => {
-  requestPokemon(next);
-}
-useEffect(()=>{ 
- 
-}, [])
+const {
+  pokedex,
+  setPokedex,
+  addToPokedex,
+  deleteToPokedex,
+  next,
+  setNext,
+  previous,
+  setPrevious,
+  pokemons,
+  setPokemons,
+  requestPokemon,
+  handlePrevious,
+  handleNext
+} = useContext(PokemonsContext)
 return (
   <>
   <Flex flexFlow={'row wrap'} w={'90%'}>
@@ -79,7 +82,7 @@ return (
        
         <TitleCard>{pokemon.data.name}</TitleCard>
          <Flex  flexFlow={'row '} alignSelf={'center'} justifyContent={'space-around'}>
-        <Button onClick={()=>deletePokemon(pokemon)} bg={'red.500'} color={'white'} rounded={'18px'} border={'2px solid black'} margin={'10px auto'}>  
+        <Button onClick={()=>deleteToPokedex(pokemon)} bg={'red.500'} color={'white'} rounded={'18px'} border={'2px solid black'} margin={'10px auto'}>  
            DELETAR
         </Button>   
         <Button bg={'yellow'} color={'black'} rounded={'18px'} border={'2px solid black'}  margin={'10px auto'}>  
