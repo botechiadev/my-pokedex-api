@@ -17,10 +17,10 @@ export function AppRouter() {
          <Routes>
       <Route path="/" element={<SearchClientPage/>}/>
     <Route path="/pokemons" element={<PokemonsHome />}/>
-    <Route path="/pokemons/:pokeName" element={<DetailsPokePage/>} />    
+    <Route path="/pokemon/:pokeName" element={<DetailsPokePage/>} />    
     <Route path="/pokedex" element={<PokedexPage/>} />
-    <Route path="/pokedex/game" element={<GamePage/>} />
-    <Route path="/battle" element={<BattlePage/>} />
+   /* <Route path="/pokedex/game" element={<GamePage/>} />
+    <Route path="/battle" element={<BattlePage/>} />*/
  </Routes>    
     </BrowserRouter>
  </Flex>

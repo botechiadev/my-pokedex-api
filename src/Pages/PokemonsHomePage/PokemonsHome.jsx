@@ -81,16 +81,11 @@ const TitleCard = styled.h2`
       <ButtonNav4>
         <Link to={'/pokedex'}>MyPokedex</Link>
       </ButtonNav4>
-      <Box w={'100%'} bg={'darkblue'}>
-        <Flex w={'100%'} bgSize={'cover'} bgPosition={' right top'} bgImage={bgSearch} h={'450PX'} alignContent={'center'} alignSelf={'flex-end'} padding={'1rem'}>
-          <form>
-          
-            <Input type={'text'} bg={'white'} id={'searchName'} name={'searchName'} />
-          </form>
-        </Flex>
-      </Box>
+
       <Flex flexFlow={'row wrap'} justifyContent={'space-around'}>
-        {pokemons.map((pokemon, indice) => {
+        {pokemons
+        
+        .map((pokemon, indice) => {
           const isPokemonInPokedex = pokedex.find((poke) => poke.data.name === pokemon.data.name);
           return isPokemonInPokedex ? null : (
             <PokeCard1 key={indice}>

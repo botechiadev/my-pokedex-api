@@ -33,19 +33,19 @@ export  function SearchClientPage() {
                 bg: 'blue.400',
                 zIndex: -1,
               }}>
-              Freelance
+              Pokemons
             </Text>
             <br />{' '}
             <Text color={'blue.400'} as={'span'}>
-              Design Projects
+              TEMOS QUE PEGAR!
             </Text>{' '}
           </Heading>
           <Text fontSize={{ base: 'md', lg: 'lg' }} color={'gray.500'}>
-            The project board is an exclusive resource for contract work. It&apos;s
-            perfect for freelancers, agencies, and moonlighters.
+            Esse e o nosso objetivo, <strong>EXPERIMENTE!</strong> E so entrar, se quiser veja os detalhes e CAPTURE pokemons para PREENCHER SUA POKEDEX!
           </Text>
+          <Text color={'red.700'} fontWeight={'bolder'}>Em breve NOVAS FUNCIONALIDADES</Text>
           <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-            <Button
+           {/* <Button
               rounded={'full'}
               onClick={()=>{handleSignIn(navigate)}}
               bg={'blue.400'}
@@ -55,7 +55,7 @@ export  function SearchClientPage() {
 
               }}>
               LOGUEAR E JOGAR
-            </Button>
+            </Button>*/}
             <Button rounded={'full'} onClick={()=>{handlePokemons(navigate)}}>
             EXPERIMENTAR  CAPTURAR
             </Button>
