@@ -7,6 +7,7 @@ import axios from "axios";
 
 import styled from "styled-components";
 import { PokedexContext } from '../../common/context/Context'
+import {ApiContext} from "../../common/context/api-context.jsx";
 
 
 
@@ -70,34 +71,8 @@ font-size: 3rem;
 
 
 export  function PokemonsListPage() {
-const URL_API1 = "https://pokeapi.co/api/v2";
-const [pokemons, setPokemons] = useState([]);
-const [next, setNext] = useState("");
-const [previous, setPrevious] = useState("");
-const {addToPokedex, deletePokemon , pokedex}=useContext(PokedexContext)
-const handleNext = (url) => {
-  requestPokemon(next);
-};
-console.log(pokedex)
-const handlePrevious = (url) => {
-  requestPokemon(previous);
-};
-const requestPokemon = async (url) => {
-  const response = await axios.get(url);
-  setNext(response.data.next);
-  setPrevious(response.data.previous);
-  Promise.all(
-    response.data.results.map((pokemon) => axios.get(pokemon.url))
-  ).then((data) => {
-    setPokemons(data);
-  });
-};
-useEffect(()=>{ 
-  requestPokemon(URL_API1 + "/pokemon");
-}, [])
 
-
-
+  const {next, previous, pokemons} = useContext(ApiContext)
 
 return (
   <div className="App">
