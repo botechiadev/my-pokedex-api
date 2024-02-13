@@ -1,9 +1,9 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react'
-import  {PokedexProvider}  from './globals/Context';
-import { AppRouter } from './root/AppRouter';
+import  {PokedexProvider}  from './common/context/Context';
+import { AppRouter } from './router/AppRouter';
 import {GlobalStyled} from './theme/globalStyled';
-import { NavbarComponent } from './Components/Navbar/NavbarComponent';
+import { NavbarComponent } from './components/Navbar/NavbarComponent';
 import './theme/normalize.css'
 
 
